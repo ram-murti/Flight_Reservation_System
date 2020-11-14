@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Sign Up</title>
+</head>
+<body>
+<h2>Sign Up</h2>
+
+ <form th:action="@{/api/save}" th:object=${signUp} method="post">
+
+      <label for="username">Username</label>
+                 <input type="text"
+				 class="form-control mb-4 col-4"
+			    	placeholder="username" th:field=*{username}> 
+				
+				
+      <label for="email">Email</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="email" th:field=*{email}> 
+       <label for="password">Password</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="password" th:field=*{password}>
+				    
+		<button type="submit">save</button>		    
+				     
+ </form>
+     <a href="/facebook/useApplication">Login using Facebook</a> |  
+ 
+</body>
+</html>

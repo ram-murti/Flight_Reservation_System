@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Search Flight</title>
+</head>
+<body>
+<h2 th:text=${message}></h2>
+
+<form th:action="@{/flight/search}" th:object=${search} method="post">
+
+      <label for="from">From</label>          
+     <div class="form-group blu-margin">
+                   <input type="text" placeholder="Search.." th:field=*{from}  id="myInput1" onkeyup="filterFunction1()">
+     
+       <div id="myDropdown1" class="dropdown-content"  style="display: none;">
+    <li   th:each="operator : ${operators}"  th:attr="onclick='fillFunction1(\'' + ${operator} + '\');'" th:id=${operator} th:value="${operator}"th:field=*{from}  th:text="${operator}"></li>
+    </div>
+</div>
+
+       <label for="to">To</label>
+
+<div class="form-group blu-margin">
+         <input type="text" placeholder="Search.." th:field=*{to}  id="myInput2" onkeyup="filterFunction2()">
+  <div id="myDropdown2" class="dropdown-content" style="display: none;">
+    <li    th:each="operator : ${operators}" th:attr="onclick='fillFunction2(\'' + ${operator} + '\');'" th:field=*{to} th:id=${operator} th:value="${operator}"  th:text="${operator}"></li>
+   
+    </div>
+</div>
+                
+				    
+		<button type="submit">save</button>		    
+				     
+ </form>
+ 
+ 
+</body>
+<script type="text/javascript"  th:inline="javascript">
+var k;
+var l;
+
+console.log("here");
+"Your java script code"
+function filterFunction1() {
+	  document.getElementById("myDropdown1").style="display:block";
+
+
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput1");
+  
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown1");
+  console.log(div);
+  a = div.getElementsByTagName("li");
+  
+  for (i = 0; i < a.length; i++) {
+	  
+	  var res = a[i].textContent;
+	  var re = res.split("->");
+
+	  console.log(re[0]);
+    txtValue = re[0];
+    console.log(txtValue);
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+   
+      a[i].style.display = "none";
+    }
+  }
+}
+function filterFunction2() {
+	  document.getElementById("myDropdown2").style="display:block";
+	  document.getElementById("myDropdown1").style="display:none";
+
+	  var input, filter, ul, li, a, i;
+	  input = document.getElementById("myInput2");
+	  filter = input.value.toUpperCase();
+	  div = document.getElementById("myDropdown2");
+	  a = div.getElementsByTagName("li");
+	  console.log(a);
+	  for (i = 0; i < a.length; i++) {
+		  var res = a[i].textContent;
+		  var re = res.split("->");
+
+		  console.log(re[0]);
+	    txtValue = re[0];
+	    console.log(txtValue);
+	    txtValue = a[i].textContent ;
+	    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	      a[i].style.display = "";
+	    } else {
+	      a[i].style.display = "none";
+	    }
+	  }
+	}
+function fillFunction1(k) {
+	  var re = k.split("->");
+	document.getElementById("myInput1").value=re[0];
+	  document.getElementById("myDropdown1").style="display:none";
+
+}
+function fillFunction2(l) {
+	  var re = l.split("->");
+		document.getElementById("myInput2").value=re[0];
+	  document.getElementById("myDropdown2").style="display:none";
+
+}
+</script>
+</html>

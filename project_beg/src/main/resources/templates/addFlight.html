@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Add Flight</title>
+</head>
+<body>
+<form th:action="@{/flight/save}" th:object=${addflight} method="post">
+
+      <label for="flight_number">Flight_No.</label>
+                 <input type="text"
+				 class="form-control mb-4 col-4"
+			    	placeholder="flight_number" th:field=*{flight_number}> <br>
+				
+				
+      <label for="flight_name">Flight_Name</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="flight_name" th:field=*{flight_name}> <br>
+      
+		 <label for="from">From</label>
+                 <input type="text"
+				 class="form-control mb-4 col-4"
+			    	placeholder="from" th:field=*{from}> <br>
+     
+       <label for="to">To</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="to" th:field=*{to}><br>	
+				    
+	   <label for="seat_capacity">Seat_Capacity</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="seat_capacity" th:field=*{seat_capacity}>	<br>
+				    
+	   <label for="departure_time">Departure_time</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				 
+				    placeholder="departure_time" th:field=*{departure_time}><br>	
+		<label for="arrival_time">Arrival_time</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="arrival_time" th:field=*{arrival_time}>	<br>
+		<label for="price">price</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="price" th:field=*{price}><br>		    
+				    		    	    
+		<button type="submit">save</button>	
+		</form>
+</body>
+</html>

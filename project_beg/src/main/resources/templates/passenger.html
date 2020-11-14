@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Add Passenger</title>
+</head>
+<body>
+
+<form th:action="@{/pass/save(userid=${userid},fid=${fid})}" th:object=${pass} method="post">
+
+      <label for="first_name">First_Name</label>
+                 <input type="text"
+				 class="form-control mb-4 col-4"
+			    	placeholder="First_Name" th:field=*{first_name}> <br>
+     
+       <label for="last_name">last_name</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="last_name" th:field=*{last_name}>
+			
+			<label for="number">number</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="number" th:field=*{number}>	
+				    
+				<label for="email">email</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="email" th:field=*{email}>	
+				
+				    
+				<label for="age">age</label>
+                  <input type="text"
+				 class="form-control mb-4 col-4"
+				    placeholder="age" th:field=*{age}>	
+				     
+				 	           
+		<button type="submit">save</button>		    
+				     
+ </form>
+</body>
+</html>

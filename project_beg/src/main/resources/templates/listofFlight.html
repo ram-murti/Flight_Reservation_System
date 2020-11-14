@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+          <tr>
+             
+             <th>From</th>    
+             <th>To</th>          
+             <th>Flight_Number</th>          
+             <th>Flight_Name</th>          
+             <th>Departure_time  </th> 
+             <th>Arrival_time</th>  
+             <th>Price</th>  
+             <th>Click</th>
+             
+          </tr>
+          
+         <tr th:each= "flight : ${listOfFlight} ">
+
+                <td th:text=${flight.from}></td>
+                <td th:text=${flight.to}></td>
+                <td th:text=${flight.flight_number}></td>
+                <td th:text=${flight.flight_name}></td>
+                <td th:text=${flight.departure_time}></td>
+                <td th:text=${flight.arrival_time}></td>
+                <td th:text=${flight.price}></td>
+                <td><a th:object=${flight1} th:href="@{/pass/user(fid=${flight.id})}">Continue to  Book this flight</a></td>
+                   
+         </tr> 
+ 		<a th:href="@{/flight/search(userid=${userid})}">Back to search page</a>
+ 		<a th:href="@{/ticket/getAllReservations}">View All Tickets</a>
+ 		
+ 		
+ 
+ </table>
+</body>
+</html>

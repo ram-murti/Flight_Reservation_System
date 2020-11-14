@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Passengers</title>
+</head>
+<body>
+ 		<a th:href="@{/ticket/getAllReservations}">View All Tickets</a>
+
+<a th:href="@{/addPassenger(userid=${userid},fid=${fid})}">Add New Passenger</a>
+    <fieldset>
+        <legend>Your addresses</legend>
+        
+            <table border="1">
+          <tr>
+             <th>Button</th>
+             <th>First_Name</th>    
+             <th>Last_Name</th>          
+             <th>Email</th>          
+             <th>Mobile Number</th>          
+             <th>Age  </th>              
+          </tr>	 
+          
+          
+             
+         
+             
+           <tr th:each="pass : ${allPassengers}">
+           <td> <a th:href="@{/reservationdi(pid=${pass.id})}">Click to add this</a></td>
+          <td  th:text=${pass.first_name}>         </td>
+          <td  th:text=${pass.last_name}>         </td>
+          <td  th:text=${pass.email}>         </td>
+          <td  th:text=${pass.number}>         </td>
+          <td  th:text=${pass.age}>         </td>
+          </tr>
+                
+                </table>
+           
+       
+    </fieldset>
+</form>
+
+</body>
+</html>

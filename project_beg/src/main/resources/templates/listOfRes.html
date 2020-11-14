@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Total Reservation</title>
+</head>
+<body>
+ <fieldset th:each= "res : ${totalres} ">
+        <legend>Your Ticket</legend>
+<div class="container">
+
+		<h4>From:</h4>
+        <h7 th:text="${res.Flight.from}" />
+		<h4>To:</h4>
+		<h7 th:text="${res.Flight.to}" />
+
+		<h4>Flight name:</h4>
+		<h7 th:text="${res.Flight.flight_name}" />
+		
+		<h4>Flight No.:</h4>
+		<h7 th:text="${res.Flight.flight_number}" />
+		
+		<h4>Departure time:</h4>
+		<h7 th:text="${res.Flight.departure_time}" />
+		
+		<h4>Arrival Time:</h4>
+		<h7 th:text="${res.Flight.arrival_time}" />
+
+		<h4>Price:</h4>
+		<h7 th:text="${res.Flight.price}" />
+	
+			<h4>Details of passenger:</h4>
+	<table border="1">
+          <tr>
+             
+             <th>First_Name</th>    
+             <th>Last_Name</th>          
+             <th>Email</th>          
+             <th>Mobile Number</th>          
+             <th>Age  </th>              
+          </tr>	
+          <tr>
+          <td  th:text=${res.Passenger.first_name}>         </td>
+          <td  th:text=${res.Passenger.last_name}>         </td>
+          <td  th:text=${res.Passenger.email}>         </td>
+          <td  th:text=${res.Passenger.number}>         </td>
+          <td  th:text=${res.Passenger.age}>         </td>
+          </tr>
+          </table>
+          </div>
+          </fieldset>
+          
+</body>
+</html>

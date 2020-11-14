@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<title>Reservation</title>
+</head>
+<body>
+<a th:href="@{/ticket/getAllReservations}">View All Tickets</a>
+<div class="container">
+
+		<h4>From:</h4>
+        <h7 th:text="${flight.from}" />
+		<h4>To:</h4>
+		<h7 th:text="${flight.to}" />
+
+		<h4>Flight name:</h4>
+		<h7 th:text="${flight.flight_name}" />
+		
+		<h4>Flight No.:</h4>
+		<h7 th:text="${flight.flight_number}" />
+		
+		<h4>Departure time:</h4>
+		<h7 th:text="${flight.departure_time}" />
+		
+		<h4>Arrival Time:</h4>
+		<h7 th:text="${flight.arrival_time}" />
+
+		<h4>Price:</h4>
+		<h7 th:text="${flight.price}" />
+	
+			<h4>Details of passenger:</h4>
+	<table border="1">
+          <tr>
+             
+             <th>First_Name</th>    
+             <th>Last_Name</th>          
+             <th>Email</th>          
+             <th>Mobile Number</th>          
+             <th>Age  </th>              
+          </tr>	
+          <tr>
+          <td  th:text=${passenger.first_name}>         </td>
+          <td  th:text=${passenger.last_name}>         </td>
+          <td  th:text=${passenger.email}>         </td>
+          <td  th:text=${passenger.number}>         </td>
+          <td  th:text=${passenger.age}>         </td>
+          </tr>
+   <form th:action="@{/ticket/save(pid=${pid})}" th:object=${reservation} method="post">
+
+		<button type="submit">save</button>		    
+				     
+ </form>
+</body>
+</html>
